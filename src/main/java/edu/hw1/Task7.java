@@ -10,9 +10,9 @@ public class Task7 {
         return rotate(n, shift);
     }
 
-    private static int rotate(int n, int shiftToLeft) {
+    private static int rotate(int number, int shiftToLeft) {
         BitSet bitSet = new BitSet(Integer.SIZE);
-        for (int i = 0; n > 0; i++) {
+        for (int i = 0, n = number; n > 0; i++) {
             bitSet.set(i, n % 2 == 1);
             n /= 2;
         }
