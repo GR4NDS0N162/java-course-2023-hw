@@ -1,7 +1,7 @@
 package edu.hw1;
 
 public class Task8 {
-    private static final int[][] offsets = {
+    private static final int[][] OFFSETS = {
         {2, 1},
         {2, -1},
         {-2, 1},
@@ -19,7 +19,7 @@ public class Task8 {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 if (board[i][j] == 1) {
-                    for (int[] offset : offsets) {
+                    for (int[] offset : OFFSETS) {
                         int x = j + offset[0];
                         int y = i + offset[1];
 
