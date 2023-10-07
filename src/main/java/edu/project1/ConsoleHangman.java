@@ -1,26 +1,33 @@
 package edu.project1;
 
-import org.jetbrains.annotations.NotNull;
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 public class ConsoleHangman {
+    private final static Logger LOGGER = LogManager.getLogger();
+
     private static final int START_GUESSES_COUNT = 5;
 
-    public void run() {
+    private ConsoleHangman() {
+    }
+
+    public static void run() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Hangman game!");
+        LOGGER.info("Welcome to the Hangman game!");
 
         int guessesLeft = START_GUESSES_COUNT;
         boolean gameWon = false;
 
         while (guessesLeft > 0) {
-            System.out.println("You have " + guessesLeft + " guesses left.");
-            System.out.print("Enter your guess: ");
+            LOGGER.info("You have " + guessesLeft + " guesses left.");
+            LOGGER.info("Enter your guess: ");
             String guess = scanner.nextLine();
 
             if (!isValidGuess(guess)) {
-                System.out.println("Please enter a single letter.");
+                LOGGER.info("Please enter a single letter.");
                 continue;
             }
 
@@ -30,15 +37,15 @@ public class ConsoleHangman {
         }
 
         if (gameWon) {
-            System.out.println("You won!");
+            LOGGER.info("You won!");
         } else {
-            System.out.println("You lost!");
+            LOGGER.info("You lost!");
         }
 
         scanner.close();
     }
 
-    private boolean isValidGuess(@NotNull String guess) {
+    private static boolean isValidGuess(@NotNull String guess) {
         return guess.length() == 1 && guess.matches("[a-zA-Z]");
     }
 }
