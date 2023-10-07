@@ -1,5 +1,7 @@
 package edu.hw1;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Task3 {
     private Task3() {
     }
@@ -8,7 +10,7 @@ public class Task3 {
         return min(a2) < min(a1) && max(a1) < max(a2);
     }
 
-    private static int min(int[] array) {
+    private static int min(int @NotNull [] array) {
         int minValue = Integer.MAX_VALUE;
 
         for (int value : array) {
@@ -18,7 +20,7 @@ public class Task3 {
         return minValue;
     }
 
-    private static int max(int[] array) {
+    private static int max(int @NotNull [] array) {
         int maxValue = Integer.MIN_VALUE;
 
         for (int value : array) {

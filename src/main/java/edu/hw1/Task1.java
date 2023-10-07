@@ -1,11 +1,13 @@
 package edu.hw1;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Task1 {
     private Task1() {
     }
 
     @SuppressWarnings("MagicNumber")
-    public static int minutesToSeconds(String duration) {
+    public static int minutesToSeconds(@NotNull String duration) {
         String[] arr = duration.split(":");
 
         int invalidValue = -1;
