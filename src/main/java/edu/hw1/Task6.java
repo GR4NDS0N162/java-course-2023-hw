@@ -6,15 +6,16 @@ public class Task6 {
     private Task6() {
     }
 
+    @SuppressWarnings("MagicNumber")
     public static int countK(int number) {
         if (number == 6174) {
             return 0;
         }
 
         int[] digits = new int[4];
-        for (int i = 0; i < 4; i++) {
-            digits[i] = number % 10;
-            number /= 10;
+        for (int i = 0, n = number; i < 4; i++) {
+            digits[i] = n % 10;
+            n /= 10;
         }
 
         Arrays.sort(digits);
