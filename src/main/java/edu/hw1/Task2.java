@@ -4,14 +4,12 @@ public class Task2 {
     private Task2() {
     }
 
-    public static int countDigits(int num) {
-        int count = 0;
-
-        do {
+    @SuppressWarnings("MagicNumber")
+    public static int countDigits(int number) {
+        int count = 1;
+        for (int n = number; n != 0; n /= 10) {
             count++;
-            num /= 10;
-        } while (num != 0);
-
+        }
         return count;
     }
 }
