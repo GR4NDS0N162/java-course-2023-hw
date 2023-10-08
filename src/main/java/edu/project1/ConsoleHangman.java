@@ -24,6 +24,7 @@ public class ConsoleHangman {
         var indexes = Dictionary.getIndexes(word);
         char[] letters = new char[word.length()];
         Arrays.fill(letters, '*');
+
         int mistakes = 0;
         boolean gameWon = false;
 
