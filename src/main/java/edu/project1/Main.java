@@ -5,6 +5,7 @@ public final class Main {
     }
 
     public static void main(String[] args) {
-        ConsoleHangman.run();
+        ConsoleHangman consoleHangman = new ConsoleHangman(10);
+        consoleHangman.run();
     }
 }

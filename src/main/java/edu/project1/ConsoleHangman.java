@@ -9,12 +9,13 @@ import org.jetbrains.annotations.NotNull;
 public class ConsoleHangman {
     private final static Logger LOGGER = LogManager.getLogger();
 
-    private static final int MAX_MISTAKES_COUNT = 5;
+    private final int maxMistakesCount;
 
-    private ConsoleHangman() {
+    public ConsoleHangman(int maxMistakesCount) {
+        this.maxMistakesCount = Math.max(maxMistakesCount, 1);
     }
 
-    public static void run() {
+    public void run() {
         Scanner scanner = new Scanner(System.in);
 
         LOGGER.info("Welcome to the Hangman game!");
@@ -26,7 +27,7 @@ public class ConsoleHangman {
         int mistakes = 0;
         boolean gameWon = false;
 
-        while (mistakes < MAX_MISTAKES_COUNT && !gameWon) {
+        while (mistakes < maxMistakesCount && !gameWon) {
             LOGGER.info("Guess a letter:");
             String guess = scanner.nextLine();
 
@@ -49,7 +50,7 @@ public class ConsoleHangman {
                 }
             } else {
                 mistakes++;
-                LOGGER.info("Missed, mistake " + mistakes + " out of " + MAX_MISTAKES_COUNT + ".");
+                LOGGER.info("Missed, mistake " + mistakes + " out of " + maxMistakesCount + ".");
             }
 
             LOGGER.info("The word: " + String.valueOf(letters));
