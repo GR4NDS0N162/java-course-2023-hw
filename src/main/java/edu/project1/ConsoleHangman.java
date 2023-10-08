@@ -1,5 +1,6 @@
 package edu.project1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class ConsoleHangman {
     private final static Logger LOGGER = LogManager.getLogger();
 
-    private static final int START_GUESSES_COUNT = 5;
+    private static final int MAX_MISTAKES_COUNT = 5;
 
     private ConsoleHangman() {
     }
@@ -18,22 +19,40 @@ public class ConsoleHangman {
 
         LOGGER.info("Welcome to the Hangman game!");
 
-        int guessesLeft = START_GUESSES_COUNT;
+        var word = Dictionary.getRandomWord();
+        var indexes = Dictionary.getIndexes(word);
+        char[] letters = new char[word.length()];
+        Arrays.fill(letters, '*');
+        int mistakes = 0;
         boolean gameWon = false;
 
-        while (guessesLeft > 0) {
-            LOGGER.info("You have " + guessesLeft + " guesses left.");
-            LOGGER.info("Enter your guess: ");
+        while (mistakes < MAX_MISTAKES_COUNT && !gameWon) {
+            LOGGER.info("Guess a letter:");
             String guess = scanner.nextLine();
 
             if (!isValidGuess(guess)) {
                 LOGGER.info("Please enter a single letter.");
                 continue;
             }
+            char guessChar = guess.charAt(0);
 
-            // TODO: Hangman game logic goes here.
+            if (indexes.containsKey(guessChar)) {
+                LOGGER.info("Hit!");
 
-            guessesLeft--;
+                for (int index : indexes.get(guessChar)) {
+                    letters[index] = guessChar;
+                }
+                indexes.remove(guessChar);
+
+                if (indexes.isEmpty()) {
+                    gameWon = true;
+                }
+            } else {
+                mistakes++;
+                LOGGER.info("Missed, mistake " + mistakes + " out of " + MAX_MISTAKES_COUNT + ".");
+            }
+
+            LOGGER.info("The word: " + String.valueOf(letters));
         }
 
         if (gameWon) {
