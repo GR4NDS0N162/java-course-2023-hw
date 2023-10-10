@@ -12,6 +12,8 @@ public class Task5 {
         do {
             if (isPalindrome(descendant)) {
                 return true;
+            } else if (getLength(descendant) % 2 != 0) {
+                break;
             }
             descendant = calcDescendant(descendant);
         } while (getLength(descendant) > 1);
@@ -21,6 +23,10 @@ public class Task5 {
 
     private static boolean isPalindrome(int number) {
         return isPalindrome(Integer.toString(number));
+    }
+
+    private static int getLength(int number) {
+        return Integer.toString(number).length();
     }
 
     private static int calcDescendant(int number) {
@@ -39,10 +45,6 @@ public class Task5 {
         }
 
         return Integer.parseInt(result.toString());
-    }
-
-    private static int getLength(int number) {
-        return Integer.toString(number).length();
     }
 
     private static boolean isPalindrome(@NotNull String string) {

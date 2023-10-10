@@ -48,4 +48,15 @@ public class Task5Test {
         // then
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
+
+    @Test @DisplayName("1") void test5() {
+        // given
+        int number = 1;
+
+        // when
+        boolean isPalindromeDescendant = Task5.isPalindromeDescendant(number);
+
+        // then
+        assertThat(isPalindromeDescendant).isEqualTo(true);
+    }
 }
