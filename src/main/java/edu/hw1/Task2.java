@@ -6,10 +6,14 @@ public class Task2 {
 
     @SuppressWarnings("MagicNumber")
     public static int countDigits(int number) {
-        int count = 1;
-        for (int n = number; n != 0; n /= 10) {
+        int count = 0;
+        int n = number;
+
+        do {
             count++;
-        }
+            n /= 10;
+        } while (n != 0);
+
         return count;
     }
 }
