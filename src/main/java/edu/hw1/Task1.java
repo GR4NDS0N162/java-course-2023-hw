@@ -12,7 +12,7 @@ public class Task1 {
 
         int invalidValue = -1;
 
-        if (arr.length != 2 || arr[0].isEmpty() || arr[1].isEmpty()) {
+        if (arr.length != 2 || arr[0].isEmpty() || arr[1].length() != 2) {
             return invalidValue;
         }
 
