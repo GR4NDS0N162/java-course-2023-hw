@@ -69,4 +69,17 @@ public class Task5Test {
         // then
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
+
+    @Test
+    @DisplayName("123")
+    void test6() {
+        // given
+        int number = 123;
+
+        // when
+        boolean isPalindromeDescendant = Task5.isPalindromeDescendant(number);
+
+        // then
+        assertThat(isPalindromeDescendant).isEqualTo(true);
+    }
 }
