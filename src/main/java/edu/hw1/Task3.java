@@ -1,5 +1,7 @@
 package edu.hw1;
 
+import java.util.Arrays;
+import java.util.OptionalInt;
 import org.jetbrains.annotations.NotNull;
 
 public class Task3 {
@@ -11,22 +13,12 @@ public class Task3 {
     }
 
     private static int min(int @NotNull [] array) {
-        int minValue = Integer.MAX_VALUE;
-
-        for (int value : array) {
-            minValue = Integer.min(value, minValue);
-        }
-
-        return minValue;
+        OptionalInt min = Arrays.stream(array).min();
+        return min.isPresent() ? min.getAsInt() : Integer.MAX_VALUE;
     }
 
     private static int max(int @NotNull [] array) {
-        int maxValue = Integer.MIN_VALUE;
-
-        for (int value : array) {
-            maxValue = Integer.max(value, maxValue);
-        }
-
-        return maxValue;
+        OptionalInt max = Arrays.stream(array).max();
+        return max.isPresent() ? max.getAsInt() : Integer.MIN_VALUE;
     }
 }
