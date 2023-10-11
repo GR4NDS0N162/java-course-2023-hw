@@ -3,6 +3,8 @@ package edu.hw1;
 import java.util.BitSet;
 
 public class Task7 {
+    private static final int BINARY_BASE = 2;
+
     private Task7() {
     }
 
@@ -13,8 +15,8 @@ public class Task7 {
     private static int rotate(int number, int shiftToLeft) {
         BitSet bitSet = new BitSet(Integer.SIZE);
         for (int i = 0, n = number; n > 0; i++) {
-            bitSet.set(i, n % 2 == 1);
-            n /= 2;
+            bitSet.set(i, n % BINARY_BASE != 0);
+            n /= BINARY_BASE;
         }
 
         int length = bitSet.length();
