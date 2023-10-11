@@ -23,6 +23,7 @@ public class Task7 {
         for (int i = 0; i < length; i++) {
             if (bitSet.get(i)) {
                 int newIndex = (i + shiftToLeft) % length;
+                newIndex = (newIndex + length) % length;
                 result |= 0x1 << newIndex;
             }
         }
