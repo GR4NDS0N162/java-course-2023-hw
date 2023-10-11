@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Task5Test {
-    @Test @DisplayName("11211230") void test1() {
+    @Test
+    @DisplayName("11211230")
+    void test1() {
         // given
         int number = 11211230;
 
@@ -16,7 +18,9 @@ public class Task5Test {
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
 
-    @Test @DisplayName("13001120") void test2() {
+    @Test
+    @DisplayName("13001120")
+    void test2() {
         // given
         int number = 13001120;
 
@@ -27,7 +31,9 @@ public class Task5Test {
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
 
-    @Test @DisplayName("23336014") void test3() {
+    @Test
+    @DisplayName("23336014")
+    void test3() {
         // given
         int number = 23336014;
 
@@ -38,7 +44,9 @@ public class Task5Test {
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
 
-    @Test @DisplayName("11") void test4() {
+    @Test
+    @DisplayName("11")
+    void test4() {
         // given
         int number = 11;
 
@@ -49,7 +57,9 @@ public class Task5Test {
         assertThat(isPalindromeDescendant).isEqualTo(true);
     }
 
-    @Test @DisplayName("1") void test5() {
+    @Test
+    @DisplayName("1")
+    void test5() {
         // given
         int number = 1;
 
