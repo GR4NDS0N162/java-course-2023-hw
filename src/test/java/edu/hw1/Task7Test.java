@@ -46,4 +46,28 @@ public class Task7Test {
         // then
         assertThat(result).isEqualTo(6);
     }
+
+    @Test @DisplayName("rotateLeft") void test4() {
+        // given
+        int n = 42;
+        int shift = 10;
+
+        // when
+        int result = Task7.rotateLeft(n, shift);
+
+        // then
+        assertThat(result).isEqualTo(42);
+    }
+
+    @Test @DisplayName("rotateRight") void test5() {
+        // given
+        int n = 42;
+        int shift = 10;
+
+        // when
+        int result = Task7.rotateRight(n, shift);
+
+        // then
+        assertThat(result).isEqualTo(42);
+    }
 }
