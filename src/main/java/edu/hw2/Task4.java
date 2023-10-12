@@ -1,5 +1,7 @@
 package edu.hw2;
 
+import edu.hw2.task4.CallingInfo;
+
 public class Task4 {
     private Task4() {
     }
