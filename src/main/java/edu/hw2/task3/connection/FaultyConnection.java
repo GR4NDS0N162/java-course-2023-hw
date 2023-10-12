@@ -9,7 +9,7 @@ public class FaultyConnection implements Connection {
     private final static int FAILED_ATTEMPTS = 3;
 
     @Override
-    public void execute(String command) {
+    public void execute(String command) throws ConnectionException {
         Random rand = new Random();
         if (rand.nextInt(ALL_ATTEMPTS) < FAILED_ATTEMPTS) {
             throw new ConnectionException();
