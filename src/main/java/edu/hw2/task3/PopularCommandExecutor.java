@@ -13,7 +13,16 @@ public final class PopularCommandExecutor {
         tryExecute("apt update && apt upgrade -y");
     }
 
-    private void tryExecute(String command) {
-        // ...
+    public void tryExecute(String command) throws ConnectionException {
+        for (int attempts = 1; attempts <= maxAttempts; attempts++) {
+            try {
+                manager.getConnection().execute(command);
+                return;
+            } catch (ConnectionException e) {
+                if (attempts >= maxAttempts) {
+                    throw new ConnectionException("Failed to execute the command (number of attempts exceeded)", e);
+                }
+            }
+        }
     }
 }
