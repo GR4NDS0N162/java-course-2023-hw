@@ -18,6 +18,7 @@ public class FaultyConnection implements Connection {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
+        System.out.println("FaultyConnection closed");
     }
 }
