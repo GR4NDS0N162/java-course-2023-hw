@@ -9,11 +9,16 @@ import java.util.Random;
 public class DefaultConnectionManager implements ConnectionManager {
     private final static int ALL_CONNECTIONS = 10;
     private final static int FAULTY_CONNECTIONS = 3;
+    private Connection connection;
 
-    @Override public Connection getConnection() {
-        Random rand = new Random();
-        return rand.nextInt(ALL_CONNECTIONS) < FAULTY_CONNECTIONS
-               ? new FaultyConnection()
-               : new StableConnection();
+    @Override
+    public Connection getConnection() {
+        if (connection == null) {
+            Random rand = new Random();
+            connection = rand.nextInt(ALL_CONNECTIONS) < FAULTY_CONNECTIONS
+                         ? new FaultyConnection()
+                         : new StableConnection();
+        }
+        return connection;
     }
 }
