@@ -1,6 +1,8 @@
-package edu.hw2.task3;
+package edu.hw2.task3.connection;
 
-public class StableConnection implements Connection {
+import edu.hw2.task3.Connection;
+
+public class FaultyConnection implements Connection {
     @Override
     public void execute(String command) {
     }
