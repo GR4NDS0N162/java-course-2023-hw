@@ -12,7 +12,7 @@ public class FaultyConnection implements Connection {
     public void execute(String command) throws ConnectionException {
         Random rand = new Random();
         if (rand.nextInt(ALL_ATTEMPTS) < FAILED_ATTEMPTS) {
-            throw new ConnectionException();
+            throw new ConnectionException("Failed to execute the command \"%s\"".formatted(command));
         }
         System.out.println("FaultyConnection: " + command);
     }

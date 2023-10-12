@@ -20,7 +20,10 @@ public final class PopularCommandExecutor {
                 return;
             } catch (ConnectionException e) {
                 if (attempts >= maxAttempts) {
-                    throw new ConnectionException("Failed to execute the command (number of attempts exceeded)", e);
+                    throw new ConnectionException(
+                        "Failed to execute the command \"%s\" (number of attempts exceeded)".formatted(command),
+                        e
+                    );
                 }
             }
         }
