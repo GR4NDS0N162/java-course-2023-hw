@@ -1,5 +1,9 @@
-package edu.hw2.task3;
+package edu.hw2.task3.manager;
 
+import edu.hw2.task3.Connection;
+import edu.hw2.task3.ConnectionManager;
+import edu.hw2.task3.FaultyConnection;
+import edu.hw2.task3.StableConnection;
 import java.util.Random;
 
 public class DefaultConnectionManager implements ConnectionManager {
